@@ -35,7 +35,8 @@
     "release": "pnpm bumpp",
     "dev-view": "npx taze -r ",
     "dev-update": "npx taze major -wr",
-    "prepare": "pnpm husky install"
+    "prepare": "pnpm husky install",
+    "publish": "npm publish --registry https://registry.npmjs.org/"
   },
   "dependencies": {
     "@antfu/eslint-config": "^2.8.0",
