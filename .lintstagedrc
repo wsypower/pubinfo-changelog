@@ -1,0 +1,3 @@
+{
+  "*./src/{ts,jsx,tsx,md,json}": "eslint --cache --fix"
+}
