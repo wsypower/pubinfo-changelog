@@ -7,6 +7,15 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wsypower/pubinfo-changelog"
+  },
+  "bugs": {
+    "url": "https://github.com/wsypower/pubinfo-changelog/issues"
+  },
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
