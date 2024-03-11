@@ -20,7 +20,6 @@ async function main(): Promise<void> {
     consola.error(`Unknown command ${subCommand}`)
     process.exit(1)
   }
-
   await subCommands[subCommand]().then(r => r.default(mri(args)))
 }
 
