@@ -30,6 +30,9 @@ jobs:
 
       - run: pnpm install
 
+      - name: Build Packages
+        run: pnpm run build
+
       - run: npx changelogithub --no-group
         continue-on-error: true
         env:
