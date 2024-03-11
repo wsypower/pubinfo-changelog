@@ -3,6 +3,7 @@
   "type": "module",
   "version": "1.0.1",
   "packageManager": "pnpm@8.15.4",
+  "description": "Generate Beautiful Changelogs using Conventional Commits",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -37,15 +38,15 @@
   },
   "scripts": {
     "commit": "pnpm git cz",
-    "build": "unbuild",
-    "dev": "unbuild --stub",
-    "lint": "pnpm eslint .",
-    "lint:fix": "pnpm eslint . --fix",
-    "release": "pnpm bumpp",
+    "build": "pnpm unbuild",
+    "dev": "pnpm unbuild --stub",
+    "changelogen": "jiti ./src/cli.ts",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "lint:fix": "eslint --ext .ts,.js,.mjs,.cjs . --fix",
     "dev-view": "npx taze -r ",
     "dev-update": "npx taze major -wr",
     "prepare": "pnpm husky install",
-    "publish": "npm publish --registry https://registry.npmjs.org/"
+    "release": "pnpm bumpp"
   },
   "dependencies": {
     "@antfu/eslint-config": "^2.8.0",
@@ -77,6 +78,7 @@
     "cz-git": "^1.9.0",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
+    "jiti": "^1.21.0",
     "lint-staged": "^15.2.2",
     "unbuild": "^2.0.0"
   },

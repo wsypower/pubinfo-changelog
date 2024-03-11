@@ -7,7 +7,7 @@ const subCommands = {
   _default: () => import('./commands/default'),
 }
 
-async function main() {
+async function main(): Promise<void> {
   const args = process.argv.slice(2)
   let subCommand = args[0]
   if (!subCommand || subCommand.startsWith('-'))
