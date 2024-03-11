@@ -90,7 +90,7 @@ ${chalk.bold.green('🍣 生成变更日志:')} ${chalk.bold.bgYellow(` ${config
   }
   if (!displayOnly) {
     await execa('git', ['add', 'CHANGELOG.md'], { cwd })
-    await execa('git', ['commit', '-m', 'chore(changelog): 更新日志'], { cwd })
+    await execa('git', ['commit', '-m', 'chore(other): 更新日志'], { cwd })
     await execa('git', ['push'], { cwd })
   }
 }
