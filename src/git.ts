@@ -29,7 +29,10 @@ export interface GitCommit extends RawGitCommit {
 
 export async function getLastGitTag() {
   const r = await execCommand('git', ['describe', '--tags', '--abbrev=0'])
-    .then(r => r.split('\n'))
+    .then((r) => {
+      if (typeof r === 'string')
+        return r.split('\n').filter(tag => tag !== '')
+    })
     .catch(() => [])
   return r.at(-1)
 }
@@ -37,7 +40,10 @@ export async function getLastGitTag() {
 export async function getPenultimateGitTag() {
   try {
     const r = await execCommand('git', ['tag', '--sort=-committerdate'])
-      .then(r => r.split('\n').filter(tag => tag !== ''))
+      .then((r) => {
+        if (typeof r === 'string')
+          return r.split('\n').filter(tag => tag !== '')
+      })
       .catch(() => [])
     // 返回倒数第二个标签。如果标签数量不足两个，则返回null。
     return r.length > 1 ? r.at(-2) : null
@@ -52,7 +58,10 @@ export async function getFirstCommitId() {
     // 使用 `git rev-list` 命令，结合 `HEAD` 和 `--max-parents=0` 选项获取第一个commit
     // `--max-parents=0` 选项意味着列出所有没有父提交的提交，即仓库的初始提交
     const r = await execCommand('git', ['rev-list', '--max-parents=0', 'HEAD'])
-      .then(r => r.split('\n').filter(commit => commit !== ''))
+      .then((r) => {
+        if (typeof r === 'string')
+          return r.split('\n').filter(tag => tag !== '')
+      })
       .catch(() => [])
     // 返回第一个commit的ID。如果没有找到（理论上不可能，除非仓库为空），则返回null。
     return r.length > 0 ? r[0] : null
@@ -103,7 +112,7 @@ export async function getGitDiff(
     '--pretty="----%n%s|%h|%an|%ae%n%b"',
     '--name-status',
   ])
-  return r
+  return (r as string)
     .split('----\n')
     .splice(1)
     .map((line) => {
