@@ -1,7 +1,7 @@
 {
   "name": "@pubinfo/changelog",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "packageManager": "pnpm@8.15.4",
   "description": "Generate Beautiful Changelogs using Conventional Commits",
   "publishConfig": {
